@@ -1,0 +1,58 @@
+<h2>Add Team Form</h2>
+<form [formGroup]="add.teamForm" class="normal-form">
+  <mat-grid-list cols="2" rowheight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="$id">
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Name*">
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="country" matInput placeholder="Country*">
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="league" matInput placeholder="League*">
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="president" matInput placeholder="President*">
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="coach" matInput placeholder="Coach*">
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input type="date" formControlName="foundationDate" matInput placeholder="Foundation Date">
+        </mat-form-field>
+        <mat-form-field>
+          <ngx-mat-file-input #logo formControlName="logo" placeholder="Logo" ></ngx-mat-file-input>
+          <mat-icon matSuffix *ngIf="logo.empty">folder_open</mat-icon>
+          <button mat-icon-button matSuffix *ngIf="!logo.empty" (click)="logo.clear($event)">
+            <mat-icon>clear</mat-icon>
+          </button>
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category" matInput>
+            <mat-option *ngFor="let category of categories" [value]="category.name">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="add.teamForm.invalid"
+            (click)="add.addTeam()">Add</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

@@ -1,0 +1,58 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-4" style="border-right:2px solid rgb(104, 102, 102)">
+        <h4 style='text-align: center;'>List of interests:</h4>
+      <div *ngFor='let interest of interestList' style='text-align: center;'>
+        <a routerLink="/displayTeam/{{interest.entity._id}}" style="color:initial"><img src="http://localhost:5000/{{interest.entity.logo}}" alt="Logo" class="center">
+         <p> {{interest.entity.name}}</p></a>
+      </div>
+    </div>
+    <div class="col-md-8">
+        <h4 style='text-align: center;'>List of Matches Followed:</h4><br>
+        <div *ngFor='let match of followedMatches' style='padding-bottom:20px'>
+        <mat-expansion-panel  style='text-align:center'>
+            <mat-expansion-panel-header>
+                <mat-panel-title style="border-right:1px solid #000">
+                    {{match.match.startDate|date:'M/d/yy'}} at {{match.match.startTime}}
+              </mat-panel-title>
+              <mat-panel-title >
+                {{match.match.teamOne.name}}
+              </mat-panel-title>
+              <mat-panel-title>
+                Vs
+              </mat-panel-title>
+              <mat-panel-title>
+               {{ match.match.teamTwo.name}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+        <div class="card" >
+          <div class="card-body container">
+            <div class="row justify-content-around">
+            <div class="col-md-5">
+              <a routerLink="/displayTeam/{{match.match.teamOne._id}}" style="color:initial"><img src="http://localhost:5000/{{match.match.teamOne.logo}}" class="card-img-top" style ="height: 100px ; width:100px">
+                <h5 class="card-title teamDisplay">{{match.match.teamOne.name}}</h5></a>
+            </div>
+            <div class="col-md-2" > <h4 class='timeAndDate'>{{match.match.startDate|date:'MMM d'}}</h4><hr> <h5 class='teamDisplay'>Vs</h5><hr> <h4 class='timeAndDate'>{{match.match.startTime}}</h4>
+            </div>
+            <div class="col-md-5">
+              <a routerLink="/displayTeam/{{match.match.teamTwo._id}}" style="color:initial"><img src="http://localhost:5000/{{match.match.teamTwo.logo}}" class="card-img-top" style ="height: 100px ; width:100px">
+                <h5 class="card-title teamDisplay">{{match.match.teamTwo.name}}</h5></a>
+            </div>
+          </div>
+          <hr>
+          <div class="row justify-content-center">
+              <p class="title col-6 teamDisplay">Category: </p> <p class="col-6 teamDisplay"> {{match.match.category}} </p>
+          </div>
+          <div class="row justify-content-center">
+              <p class="title col-6 teamDisplay">Competition:</p> <p class="col-6 teamDisplay"> {{match.match.competition}} </p>
+          </div>
+          <div class="row justify-content-center">
+              <p class="title col-6 teamDisplay">Stadium: </p> <p class="col-6 teamDisplay"> {{match.match.stadium}} </p>
+          </div>
+          </div>
+        </div>
+         </mat-expansion-panel>
+    </div>
+</div>
+</div>
+</div>

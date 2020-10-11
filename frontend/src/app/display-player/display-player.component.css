@@ -1,0 +1,50 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    background-color: rgba(255,255,255,0.8);
+    
+    font-size: 20px;
+  }
+  
+  img {
+    margin-top: 10px;
+    border-radius: 50%;
+    text-align: center;
+    width:424px;
+    height: 424px;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  .title {
+    color: grey;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    background-color:  rgb(226, 226, 224);
+    text-align: center;
+    cursor: pointer;
+    width: 25%;
+    font-size: 18px;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }

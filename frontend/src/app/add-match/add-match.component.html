@@ -1,0 +1,49 @@
+<form [formGroup]="add.matchForm" class="normal-form" >
+  <h2>Add Match Form</h2>
+        <div class="controles-container container">
+          <input type="hidden" formControlName="$id">
+          <mat-form-field>
+            <input formControlName="stadium" matInput placeholder="Stadium*">
+            <mat-error>This field is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="competition" matInput placeholder="Competition*">
+            <mat-error>This field is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="startTime" matInput placeholder="Start Time*">
+            <mat-error>This field is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input type="date" formControlName="startDate" matInput placeholder="Start Date">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category" matInput>
+              <mat-option *ngFor="let category of categories" [value]="category.name">
+                {{category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>First Team</mat-label>
+            <mat-select formControlName="teamOne" matInput>
+              <mat-option *ngFor="let team of teams" [value]="team">
+                {{team.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Second Team</mat-label>
+            <mat-select formControlName="teamTwo" matInput>
+              <mat-option *ngFor="let team of teams" [value]="team">
+                {{team.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+              <div class="button-row">
+                <button mat-raised-button color="primary" type="submit" [disabled]="add.matchForm.invalid" (click)="add.addMatch()">Add</button>
+                </div>
+          </div>
+  </form>
+

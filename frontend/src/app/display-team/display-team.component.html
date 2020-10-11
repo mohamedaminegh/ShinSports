@@ -1,0 +1,40 @@
+<br><br><br>
+<div *ngIf="currentTeam" class="card">
+    <div class="card-header">
+  <h1 class="title">{{currentTeam.name}}</h1>
+</div>
+  <img src="http://localhost:5000/{{currentTeam.logo}}" alt="Team's Logo" class="center">
+<div class="card-body">
+  <p class="title" style="font-weight: bolder;">{{currentTeam.category}} Club</p><br>
+  <div class="row justify-content-around">
+        <p class="title col-4">Country : </p> <p class="col-4"> {{currentTeam.country}}</p>
+    </div>
+  <div *ngIf="currentTeam.foundationDate" class="row justify-content-around">
+        <p class="title col-4">Founded In :</p> <p class="col-4"> {{currentTeam.foundationDate| date : 'y'}}</p>
+    </div>
+    <div class="row justify-content-around">
+  <p class="title col-4">President : </p> <p class="col-4"> {{currentTeam.president}}</p>
+</div>
+  <div class="row justify-content-around">
+  <p class="title col-4">Coach : </p> <p class="col-4">{{currentTeam.coach}}</p>
+</div>
+  <div class="row justify-content-around">
+  <p class="title col-4">League : </p> <p class="col-4">{{currentTeam.league}}</p>
+</div>
+</div>
+
+<p class="card-footer" *ngIf='isLogged'>
+    <button *ngIf='!subbed' class="btn btn-outline-success" (click)='subOrUnsub()'>Subscribe</button>
+    <button *ngIf='subbed' class="btn btn-outline-danger" (click)='subOrUnsub()'>Unsubscribe</button>
+  </p>
+</div>
+<div *ngIf="!currentTeam" class="title" style="text-align: center; font-size: 40px;">
+    No Team found
+  </div>
+  <br>
+<h2 style='text-align: center;'>Popular Upcoming Matches for this team: </h2>
+<div style='display:flex;flex-direction: row;flex-wrap: wrap;' class="justify-content-around">
+    <div *ngFor='let match of matchesAvailable' style='width:30%'>
+<app-match-element [match]="match"></app-match-element>
+    </div>
+</div>

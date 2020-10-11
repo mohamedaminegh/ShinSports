@@ -1,0 +1,10 @@
+<br>
+<div class="row justify-content-center" >
+    <button type="button" class="btn btn-secondary" (click)='getMatchesByPopularity()'>Sort By Popularity</button>
+    <button type="button" class="btn btn-secondary" style='margin-left: 10px;' (click)='getMatchesByDate()'>Sort By Date</button>
+</div>
+<div style='display:flex;flex-direction: row;flex-wrap: wrap;' class="justify-content-around">
+    <div *ngFor='let match of matchesAvailable' style='width:30%'>
+<app-match-element [match]="match"></app-match-element>
+    </div>
+</div> 

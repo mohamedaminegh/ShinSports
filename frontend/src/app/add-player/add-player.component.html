@@ -1,0 +1,60 @@
+<h2>Add Player Form</h2>
+<form [formGroup]="add.playerForm" class="normal-form">
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="$id">
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Name*">
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="country" matInput placeholder="Country*">
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" formControlName="age" matInput placeholder="Age*">
+          <mat-error>This field is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="date" formControlName="birthDate" matInput placeholder="Birth Date">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="date" formControlName="careerStart" matInput placeholder="Career Start">
+         </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div class="controles-container">
+          <mat-form-field>
+            <ngx-mat-file-input #photo formControlName="photo" placeholder="Photo" ></ngx-mat-file-input>
+            <mat-icon matSuffix *ngIf="photo.empty">folder_open</mat-icon>
+            <button mat-icon-button matSuffix *ngIf="!photo.empty" (click)="photo.clear($event)">
+              <mat-icon>clear</mat-icon>
+            </button>
+            <mat-error>This field is required.</mat-error>
+          </mat-form-field>
+            <mat-form-field>
+                <input type="text" formControlName="height" matInput placeholder="Height">
+                <mat-error>This field is required.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input type="text" formControlName="weight" matInput placeholder="Weight">
+              <mat-error>This field is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category" matInput>
+              <mat-option *ngFor="let category of categories" [value]="category.name">
+                {{category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+            <div class="button-row">
+              <button mat-raised-button color="primary" type="submit" [disabled]="add.playerForm.invalid" (click)="add.addPlayer()">Add</button>
+            </div>
+        </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+

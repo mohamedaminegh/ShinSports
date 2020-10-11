@@ -1,0 +1,25 @@
+form.normal-form{
+  margin: 10px;
+}
+
+.controles-container{
+  width: 100%;
+  padding: 5%;
+  background-color: rgba(255, 255, 255, 0.603);
+  width: 800px;
+}
+
+.controles-container > *{
+  width: 100%;
+}
+
+mat-radio-group mat-radio-button{
+  margin-left: 5px;
+}
+
+.button-row button{
+  margin-left: 5px;
+}
+
+h2 {color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 75px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+

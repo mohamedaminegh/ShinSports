@@ -1,0 +1,7 @@
+<br>
+<h2 style='text-align: center;'>Popular Upcoming Matches: </h2>
+<div style='display:flex;flex-direction: row;flex-wrap: wrap;' class="justify-content-around">
+    <div *ngFor='let match of popularMatches' style='width:30%'>
+<app-match-element [match]="match"></app-match-element>
+    </div>
+</div> 

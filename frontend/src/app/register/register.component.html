@@ -1,0 +1,44 @@
+<form [formGroup]="register.form" class="normal-form" >
+  <h2>Register Form</h2>
+        <div class="controles-container container">
+          <input type="hidden" formControlName="$id">
+          <mat-form-field>
+            <input formControlName="username" matInput placeholder="UserName*">
+            <mat-error>This field is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="email" matInput placeholder="Email*">
+            <mat-error *ngIf="register.form.controls['email'].errors?.required">This field is required.</mat-error>
+            <mat-error *ngIf="register.form.controls['email'].errors?.email">Invalid email address.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input type="password" formControlName="password" matInput placeholder="Password*">
+            <mat-error *ngIf="register.form.controls['password'].errors?.required">This field is required.</mat-error>
+            <mat-error *ngIf="register.form.controls['password'].errors?.minlength">Minimum 8 caracters needed.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input type="password" formControlName="password2" matInput placeholder="Password Validation*">
+            <mat-error *ngIf="register.form.controls['password2'].errors?.required">This field is required.</mat-error>
+          </mat-form-field>
+              <div class="add-button-padding">
+                  <mat-label>Gender :</mat-label><br>
+                <mat-radio-group formControlName="gender">
+                    <mat-radio-button value="1">Male</mat-radio-button>
+                    <mat-radio-button value="2">Female</mat-radio-button>
+                    <mat-radio-button value="3">Other</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <mat-form-field>
+                <ngx-mat-file-input #avatar formControlName="avatar" placeholder="Avatar" ></ngx-mat-file-input>
+                <mat-icon matSuffix *ngIf="avatar.empty">folder_open</mat-icon>
+                <button mat-icon-button matSuffix *ngIf="!avatar.empty" (click)="avatar.clear($event)">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </mat-form-field>
+              <div class="button-row">
+                <button mat-raised-button color="primary" type="submit" [disabled]="register.form.invalid" (click)="newUser()">Submit</button>
+                <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+              </div>
+          </div>
+  </form>
+

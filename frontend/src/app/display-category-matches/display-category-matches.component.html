@@ -1,0 +1,6 @@
+<br>
+<div style='display:flex;flex-direction: row;flex-wrap: wrap;' class="justify-content-around">
+    <div *ngFor='let match of matchesAvailable' style='width:30%'>
+<app-match-element [match]="match"></app-match-element>
+    </div>
+</div> 

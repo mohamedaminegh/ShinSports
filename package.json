@@ -1,0 +1,38 @@
+{
+  "name": "shinsports",
+  "version": "1.0.0",
+  "description": "ShinSports is a MEAN Stack application that allows users to stay up to date with different sport matches according to their interests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+    "client": "cd frontend && ng serve --proxy-config proxyconfig.json",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gh-Ch/ShinSports.git"
+  },
+  "author": "Shinigami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gh-Ch/ShinSports/issues"
+  },
+  "homepage": "https://github.com/Gh-Ch/ShinSports#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.12",
+    "multer": "^1.4.2",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validater": "^1.0.5",
+    "validator": "^12.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
